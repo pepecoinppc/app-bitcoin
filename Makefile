@@ -67,6 +67,11 @@ else ifeq ($(COIN),dogecoin)
 DEFINES   += BIP44_COIN_TYPE=3 BIP44_COIN_TYPE_2=3 COIN_P2PKH_VERSION=30 COIN_P2SH_VERSION=22 COIN_FAMILY=1 COIN_COINID=\"Dogecoin\" COIN_COINID_HEADER=\"DOGECOIN\" COIN_COLOR_HDR=0x65D196 COIN_COLOR_DB=0xB2E8CB COIN_COINID_NAME=\"Dogecoin\" COIN_COINID_SHORT=\"DOGE\" COIN_KIND=COIN_KIND_DOGE
 APPNAME ="Dogecoin"
 APP_LOAD_PARAMS += --path $(APP_PATH)
+else ifeq ($(COIN),pepecoin)
+# Pepe
+DEFINES   += BIP44_COIN_TYPE=3 BIP44_COIN_TYPE_2=3 COIN_P2PKH_VERSION=30 COIN_P2SH_VERSION=22 COIN_FAMILY=1 COIN_COINID=\"Pepecoin\" COIN_COINID_HEADER=\"PEPECOIN\" COIN_COINID_NAME=\"Pepecoin\" COIN_COINID_SHORT=\"PEPE\" COIN_KIND=COIN_KIND_PEPE
+APPNAME ="Pepecoin"
+APP_LOAD_PARAMS += --path $(APP_PATH)
 else ifeq ($(COIN),dash)
 # Dash
 DEFINES   += BIP44_COIN_TYPE=5 BIP44_COIN_TYPE_2=5 COIN_P2PKH_VERSION=76 COIN_P2SH_VERSION=16 COIN_FAMILY=1 COIN_COINID=\"DarkCoin\" COIN_COINID_HEADER=\"DASH\" COIN_COLOR_HDR=0x0E76AA COIN_COLOR_DB=0x87BBD5 COIN_COINID_NAME=\"Dash\" COIN_COINID_SHORT=\"DASH\" COIN_KIND=COIN_KIND_DASH
@@ -196,7 +201,7 @@ APPNAME ="Hydra"
 APP_LOAD_PARAMS += --path "44'/609'"
 else
 ifeq ($(filter clean,$(MAKECMDGOALS)),)
-$(error Unsupported COIN - use bitcoin_testnet, bitcoin, bitcoin_cash, bitcoin_gold, litecoin, dogecoin, dash, zcash, horizen, komodo, stratis, peercoin, pivx, viacoin, vertcoin, stealth, digibyte, qtum, bitcoin_private, firo, gamecredits, zclassic, xsn, nix, lbry, resistance, ravencoin, hydra, hydra_testnet, xrhodium)
+$(error Unsupported COIN - use bitcoin_testnet, bitcoin, bitcoin_cash, bitcoin_gold, litecoin, dogecoin, pepecoin, dash, zcash, horizen, komodo, stratis, peercoin, pivx, viacoin, vertcoin, stealth, digibyte, qtum, bitcoin_private, firo, gamecredits, zclassic, xsn, nix, lbry, resistance, ravencoin, hydra, hydra_testnet, xrhodium)
 endif
 endif
 
@@ -317,11 +322,11 @@ dep/%.d: %.c Makefile
 ifeq ($(TARGET_NAME),TARGET_NANOS)
 
 listvariants:
-	@echo VARIANTS COIN bitcoin_testnet_legacy bitcoin_legacy bitcoin_cash bitcoin_gold litecoin dogecoin dash horizen komodo stratis peercoin pivx viacoin vertcoin stealth digibyte qtum bitcoin_private firo gamecredits zclassic xsn nix lbry ravencoin resistance hydra hydra_testnet xrhodium
+	@echo VARIANTS COIN bitcoin_testnet_legacy bitcoin_legacy bitcoin_cash bitcoin_gold litecoin dogecoin pepecoin dash horizen komodo stratis peercoin pivx viacoin vertcoin stealth digibyte qtum bitcoin_private firo gamecredits zclassic xsn nix lbry ravencoin resistance hydra hydra_testnet xrhodium
 
 else
 
 listvariants:
-	@echo VARIANTS COIN bitcoin_testnet_legacy bitcoin_legacy bitcoin_cash bitcoin_gold litecoin dogecoin dash horizen komodo stratis peercoin pivx viacoin vertcoin stealth digibyte qtum bitcoin_private firo gamecredits zclassic xsn nix lbry ravencoin hydra hydra_testnet xrhodium
+	@echo VARIANTS COIN bitcoin_testnet_legacy bitcoin_legacy bitcoin_cash bitcoin_gold litecoin dogecoin pepecoin dash horizen komodo stratis peercoin pivx viacoin vertcoin stealth digibyte qtum bitcoin_private firo gamecredits zclassic xsn nix lbry ravencoin hydra hydra_testnet xrhodium
 
 endif
