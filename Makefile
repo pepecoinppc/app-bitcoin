@@ -31,7 +31,7 @@ APP_LOAD_FLAGS=--appFlags 0xa50
 
 # simplify for tests
 ifndef COIN
-COIN=pepecoin
+COIN=bitcoin_legacy
 endif
 
 ifeq ($(COIN),bitcoin_testnet_legacy)
